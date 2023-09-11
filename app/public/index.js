@@ -1,9 +1,5 @@
 $(()=>{
 
-
-
-
-    
     $('#table1').append("<table id='insert' class='table table-primary bg-primary'></table>")
     //load Ajax-call daata
     const url = 'http://numbersapi.com/1/30/date?json'

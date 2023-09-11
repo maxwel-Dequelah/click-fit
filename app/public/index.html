@@ -20,13 +20,15 @@
 
       <!------------------------------------ adding the favico.ico -------------------------------------------->
       <link rel="apple-touch-icon" sizes="180x180" style="border-radius: 30px;" href="./apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" style="border-radius: 30px;" href="./favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="32x32" style="border-radius: 30px;"  href="./favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" style="border-radius: 30px;" href="./favicon-16x16.png">
       <link rel="manifest" href="./site.webmanifest">
       <!-- <meta http-equiv="Content-Security-Policy"  
       content="img-src 'self' data:;"> -->
 <body>
-  <div class="sticky-top container-fluid primary nav navbar d-flex row nav-pills flex-column flex-sm-row" id="navbar">
+  <div class="sticky-top container-fluid primary 
+          nav navbar d-flex row nav-pills flex-column flex-sm-row" 
+          id="navbar" style="margin:0px;">
     <img src="./download.jpeg" class="img-fluid vh-25" style="max-width: 20%; height: auto;" alt="" srcset="">
     
     <ul nav-ul class="collapse navbar-collapse">
@@ -41,29 +43,32 @@
 
   </div>
     <!------------------------------------- UPLOAD IMAGES form-------------------------------------------->
-        <div class="form">
-          <form id='#imagepicker'  class="card m-5 mx-auto d-block col sm-8" 
-            method="post" 
-            enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="PhotoIn" class="form-label">Choose photo to upload</label>
-            <div id="image-preview" src="" style="display: none;">
-              Preview
+        <div class="form" id="midle-div">
+              <div class="form-div">
+                <form id='#imagepicker'  class="card m-5 mx-auto d-block col sm-8" 
+                method="post" 
+                enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="PhotoIn" class="form-label">Choose photo to upload</label>
+                <div id="image-preview" src="" style="display: none;">
+                  Preview
 
-            </div>
+                </div>
 
-            <input id='file' class="form-control" name="photo" type="file" required ="photo" 
-                value='photo' accept="image/*" />
+                <input id='file' class="form-control" name="photo" type="file" required ="photo" 
+                    value='photo' accept="image/*" />
+              </div>
+              <div id="result">
+            <!---- sucess / failure ------------------------------------------------------------------->
+              </div>
+
+
+              <div  class="mb-3" >
+                    <button id="submitBtn" class="btn btn-primary">Submit Photo</button>
+              </div>
+            </form>
           </div>
-          <div id="result">
-        <!---- sucess / failure ------------------------------------------------------------------->
-          </div>
 
-
-          <div  class="mb-3" >
-                <button id="submitBtn" class="btn btn-primary">Submit Photo</button>
-          </div>
-      </form>
         </div>
       </div>
   
