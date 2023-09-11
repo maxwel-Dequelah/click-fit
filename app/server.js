@@ -43,7 +43,10 @@ app.post('/upload', upload.single('photo'), (req, res,next) => {
 
 app.post('/newuser',(req,res)=>{
   console.log(req.body)
-  db.query("CALL addUser('user@example.com', 'password123', 'regular')",(err,result)=>{
+
+
+  // alling the stored procedure addUser 
+  db.query("CALL addUser('maxwell6225@gmail.com', 'MyWi-fiP@sword', 'Admin')",(err,result)=>{
     if (err) {
       console.log(err.message)
     }
