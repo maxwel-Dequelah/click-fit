@@ -1,32 +1,47 @@
 $(()=>{
 
-    $('#table1').append("<table id='insert' class='table table-primary bg-primary'></table>")
+
+    // End of the API get
+
+
+    $('#table1').append("<table id='insert' class='table table-black bg-primary'></table>")
     //load Ajax-call daata
-    const url = 'http://numbersapi.com/1/30/date?json'
+    const apiUrl = 'http://numbersapi.com/1/30/date?json'
 
-    $.get(url,(results,status)=>{
-        console.log(status)
-        const insert =$('#insert')
-        $.each(results, function (index,value){
-            insert.append(`<tr><td id=${index}>${index}</td> <td>${value}</td></tr>`)
+
+    // Fetch data from the API using AJAX
+    $.ajax({
+        url: apiUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var table = $('#insert');
+
+            // Iterate through the data using $.each
+            
+            $.each(data, function (index, item) {
+                var row = $(`<tr id='${index}'>`).hide();
+                setTimeout(function () {
+                    
+                    $('<td>').text(index).appendTo(row);
+                    $('<td>').text(item).appendTo(row);
+
+                    row.fadeIn(800);
+                    row.appendTo(table);
+                },row * 10000000); 
+
+            }
+
+            );
+              
            
-                })
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+        })
         
-    })
-
-    // disable btn if form is Empty
-    const upValue = $('#photoIn').value
-    console.log(upValue)
-    if (upValue == ''){
-        $('button').attr("disabled","disabled")
-    }
-
-    const upload =()=>{
-        const data = $('')
-    }
-
-    let file1
-
+  
     // Displaying succes after upload
     $('#file').on('change', function () {
         var file = this.files[0];
@@ -49,6 +64,7 @@ $(()=>{
         $('#result').text('Image uploaded successfully.');
         $('#result').text('Image saved succesfully');
         setTimeout(function () {
+            $('result').fadeOut(4000)
             $('#result').attr('style','display:none')
             $('#preview').attr('style','display:none')
             $('#file').value=[]; 
@@ -60,6 +76,7 @@ $(()=>{
         const form_data = new FormData($('#imagepicker')[0])
         form_data.append('photo',file1)
         console.log(file1)
+
         $.ajax({
             url: '/upload',
             type: 'post',
@@ -79,8 +96,15 @@ $(()=>{
             }
         })
     })
+
+    $('.nav-link.register-link').click(function (e) {
+        e.preventDefault(); // Prevent the default link behavior
+
+        // Show the modal by selecting it by its ID and calling the 'modal' method with 'show' as an argument
+        $('#registerModal').modal('show');
+
     })
    
 
         
-
+})

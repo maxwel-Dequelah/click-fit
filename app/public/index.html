@@ -25,29 +25,73 @@
       <link rel="manifest" href="./site.webmanifest">
       <!-- <meta http-equiv="Content-Security-Policy"  
       content="img-src 'self' data:;"> -->
-<body>
-  <div class="sticky-top container-fluid primary 
-          nav navbar d-flex row nav-pills flex-column flex-sm-row" 
-          id="navbar" style="margin:0px;">
-    <img src="./download.jpeg" class="img-fluid vh-25" style="max-width: 20%; height: auto;" alt="" srcset="">
-    
-    <ul nav-ul class="collapse navbar-collapse">
-      
-        <li id="viewUsers" class='list-item'>
-          <a href="#" class="nav-item nav-link active">View-Users</a>
-        </li>
-        <li id="register" class='list-item'>
-          <a href="#"  class="nav-link"> register </a>
-        </li>
-      </ul>
+<body >
+  <div class="navbar-container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <!-- <img src="" class="img-fluid logo" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
-  </div>
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Registration form goes here -->
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">User Type</label>
+                        <select class="form-control" id="userType">
+                            <option>Admin</option>
+                            <option>User</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!------------------------------------- UPLOAD IMAGES form-------------------------------------------->
         <div class="form" id="midle-div">
+            <div class="bouncing-text">Soft Bouncing Text</div>
               <div class="form-div">
                 <form id='#imagepicker'  class="card m-5 mx-auto d-block col sm-8" 
                 method="post" 
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" style="max-width:80%">
               <div class="mb-3">
                 <label for="PhotoIn" class="form-label">Choose photo to upload</label>
                 <div id="image-preview" src="" style="display: none;">
