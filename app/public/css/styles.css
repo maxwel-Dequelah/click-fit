@@ -5,6 +5,7 @@ body{
     background: #1299e7;
     padding-left: 0;
     zoom: 0%;
+   
 }
 
 #insert{
@@ -20,4 +21,16 @@ form{
     width:100px;
     height:auto;
     background-color: transparent;
+}
+ul .nav-ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.nav a{
+    font-size:30px;
+    font-family: fantasy;
+    text-decoration: none;
+    color:#f8f9fa;
 }

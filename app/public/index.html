@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+   
     <meta name="viewport" content="width=device-width, 
         initial-scale=1.0, shrink-to-fit=no">
     <title>clickfit</title>
@@ -11,38 +13,62 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
             crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="./jquery.js" 
+    crossorigin="anonymous"></script>
+      <script src="./index.js"></script>
 
 
       <!------------------------------------ adding the favico.ico -------------------------------------------->
-      <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+      <link rel="apple-touch-icon" sizes="180x180" style="border-radius: 30px;" href="./apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" style="border-radius: 30px;" href="./favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" style="border-radius: 30px;" href="./favicon-16x16.png">
       <link rel="manifest" href="./site.webmanifest">
+      <!-- <meta http-equiv="Content-Security-Policy"  
+      content="img-src 'self' data:;"> -->
 <body>
-  <div class="container-fluid primary nav navbar d-flex row nav-pills flex-column flex-sm-row" id="navbar">
+  <div class="sticky-top container-fluid primary nav navbar d-flex row nav-pills flex-column flex-sm-row" id="navbar">
     <img src="./download.jpeg" class="img-fluid vh-25" style="max-width: 20%; height: auto;" alt="" srcset="">
     
-
+    <ul nav-ul class="collapse navbar-collapse">
+      
+        <li id="viewUsers" class='list-item'>
+          <a href="#" class="nav-item nav-link active">View-Users</a>
+        </li>
+        <li id="register" class='list-item'>
+          <a href="#"  class="nav-link"> register </a>
+        </li>
+      </ul>
 
   </div>
-        <!------------------------------------- UPLOAD IMAGES -------------------------------------------->
+    <!------------------------------------- UPLOAD IMAGES form-------------------------------------------->
         <div class="form">
-          <form class="card m-5 mx-auto d-block col sm-8" 
-            method="post" action="/upload" 
+          <form id='#imagepicker'  class="card m-5 mx-auto d-block col sm-8" 
+            method="post" 
             enctype="multipart/form-data">
           <div class="mb-3">
             <label for="PhotoIn" class="form-label">Choose photo to upload</label>
-            <input class="form-control" type="file" required ="photo" value='' accept="image/*" />
+            <div id="image-preview" src="" style="display: none;">
+              Preview
+
+            </div>
+
+            <input id='file' class="form-control" name="photo" type="file" required ="photo" 
+                value='photo' accept="image/*" />
           </div>
-          <div  class="mb-3" id="submitBtn">
-            <button class="btn btn-primary">Submit Photo</button>
+          <div id="result">
+        <!---- sucess / failure ------------------------------------------------------------------->
+          </div>
+
+
+          <div  class="mb-3" >
+                <button id="submitBtn" class="btn btn-primary">Submit Photo</button>
           </div>
       </form>
         </div>
       </div>
   
   <div class="container">
-    <!--------------------------------------- blockquote ---------------------------->
+    <!--------------------------------------- blockquote --------------------------------------------------->
       <div id="table1">
         <blockquote class="blockquote text-center">
           <p class="mb-0"> Data From External API</p>
@@ -56,10 +82,7 @@
    
 
   <!-- -----------------------------------JQuery CDN------------------------------------------------------ -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
-                                    crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
+ 
   </div>
 
 </body>
