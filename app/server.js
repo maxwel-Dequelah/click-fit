@@ -8,7 +8,7 @@ const upload = require('./upload')
 const bodyParser = require('body-parser')
 
 app.use(express.static('upload_images'))
-app.use(express.static(path.join('public')))
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
