@@ -1,16 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const mysql = require('mysql2')
 
-
-
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'clickfit',
-  password:''
-});
 
 
 const upload = require('./upload')
@@ -46,13 +37,7 @@ app.post('/newuser',(req,res)=>{
 
 
   // alling the stored procedure addUser 
-  db.query("CALL addUser('maxwell6225@gmail.com', 'MyWi-fiP@sword', 'Admin')",(err,result)=>{
-    if (err) {
-      console.log(err.message)
-    }
-    else{
-      console.log(result[0])
-    }
+ 
   })
 })
 
