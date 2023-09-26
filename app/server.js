@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
   // Render form view
-  res.sendFile(path.join(__dirname +"/public/index.html")
+  res.sendFile(path.join(__dirname +"/public/index.html"))
 })
 
 
