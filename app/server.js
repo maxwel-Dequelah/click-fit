@@ -39,7 +39,7 @@ app.post('/newuser',(req,res)=>{
   // alling the stored procedure addUser 
  
   })
-})
+
 
 app.listen(process.env.PORT,()=>{
     console.log('😃😃😃😃Started server')
